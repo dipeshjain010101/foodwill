@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h2>Names of NGO's</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for donation type" title="Type in a donation">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:25%;">Name</th>
+    <th style="width:25%;">Location</th>
+    <th style="width:25%;">Type of donation</th>
+    <th style="width:25%;">Mobile number</th>
+
+
+  </tr>
+  <tr>
+    <td>Saad Foundation</td>
+    <td>Goregaon</td>
+    <td>Food</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>Akshay Patra</td>
+    <td>All India</td>
+    <td>Food</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>Vision Of People's Helping Society</td>
+    <td>Mira Road</td>
+    <td>Clothes</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>Girija Foundation</td>
+    <td>Kandivali</td>
+    <td>Food</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>V. Om Laxmi Charitable Trust</td>
+    <td>Khandala</td>
+    <td>Medicines</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>Community Development Centre</td>
+    <td>Vashi</td>
+    <td>Medical</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>Zarine Manchanda Foundation</td>
+    <td>Andheri</td>
+    <td>Educational</td>
+    <td>9876543210</td>
+  </tr>
+  <tr>
+    <td>Amcha Ghar</td>
+    <td>Pune</td>
+    <td>Clothes</td>
+    <td>9876543210</td>
+  </tr>
+  
+  
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
